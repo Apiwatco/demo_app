@@ -9,6 +9,9 @@ if defined?(Bundler)
   # Bundler.require(:default, :assets, Rails.env)
 end
 
+#remove if not work
+ActiveSupport::Deprecation.behavior = Proc.new { |msg, stack| $stderr.puts msg unless msg =~ /You have Rails 2.3-style plugins/ }
+
 module DemoApp
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
